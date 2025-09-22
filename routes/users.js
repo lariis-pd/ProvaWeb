@@ -3,7 +3,6 @@ const router = express.Router();
 const { register, login,  atualiza, deleteU } = require('../controllers/usersController');
 const authMiddleware = require('../middleware/authMiddleware');
 
-// Rotas públicas
 router.post('/register', registerUser);
 router.post('/login', loginUser);
 

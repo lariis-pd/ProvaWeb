@@ -1,8 +1,14 @@
-const jwt = require('jsonwebtoken');
-const fs = require('fs');
-const path = require('path');
+import { Router } from 'express';
+import fs from 'fs';
+import path from 'path';
+import { util } from 'undici-types';
+import { fileURLToPath } from 'url';
 
-const usersFilePath = path.join(__dirname, '../data/users.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const rotas = Router();
+const filePath = path.join(__dirname, '..', 'utils', 'db.json');
 
 const saveUsersToFile = (users) => {
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2), 'utf8');
